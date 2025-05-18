@@ -4,3 +4,4 @@ pandas
 scikit-learn
 xgboost
 joblib
+werkzeug==2.0.3
