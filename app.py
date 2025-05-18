@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template
 import joblib
 import numpy as np
+import os
 
 app = Flask(__name__)
 
@@ -15,7 +16,6 @@ def home():
 
 @app.route('/predict', methods=['POST'])
 def predict():
-    # Get form data
     try:
         Age = float(request.form['Age'])
         Height = float(request.form['Height'])
@@ -43,4 +43,5 @@ def predict():
         return render_template('index.html', prediction_text=f"Error: {str(e)}")
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))  # Use Render's PORT or 5000 locally
+    app.run(host="0.0.0.0", port=port, debug=True)
