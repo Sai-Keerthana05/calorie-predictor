@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calorie Burn Predictor</title>
+</head>
+<body>
+    <h2>Calorie Burn Prediction</h2>
+    <form action="/predict" method="post">
+        Age: <input type="number" name="Age" step="1" required><br>
+        Height (cm): <input type="number" name="Height" step="0.1" required><br>
+        Weight (kg): <input type="number" name="Weight" step="0.1" required><br>
+        Gender:
+        <select name="Gender" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select><br>
+        Body Temperature (°F): <input type="number" name="Body_Temp" step="0.1" required><br>
+        Duration (minutes): <input type="number" name="Duration" step="1" required><br>
+        Heart Rate (bpm): <input type="number" name="Heart_Rate" step="1" required><br>
+        Exercise Type:
+        <select name="Exercise_Type" required>
+            <option>Running</option>
+            <option>Walking</option>
+            <option>Cycling</option>
+            <option>Swimming</option>
+            <option>Yoga</option>
+            <option>Weight Training</option>
+            <option>Aerobics</option>
+            <option>Dancing</option>
+            <option>Jumping Jacks</option>
+            <option>Rope Skipping</option>
+        </select><br><br>
+        <input type="submit" value="Predict Calories">
+    </form>
+    <h3>{{ prediction_text }}</h3>
+</body>
+</html>
